@@ -1,6 +1,66 @@
 {
     "extends": ["react-app", "prettier"],
     "rules": {
-        "indent": ["error", 4]
+        "one-var": ["off"],
+        "semi": ["warn", "always"],
+        "wrap-iife": ["warn"],
+        "quotes": ["error", "double"],
+
+        "no-debugger": ["error"],
+
+        "function-paren-newline": ["warn"],
+        "func-call-spacing": ["warn", "never"],
+
+        "camelcase": ["off"],
+        "space-infix-ops": ["error"],
+        "keyword-spacing": ["error"],
+        "space-before-function-paren": ["error"],
+        "space-before-blocks": ["error"],
+
+        "no-var": ["off"],
+        "no-no-undef": ["off"],
+        "no-useless-escape": ["off"],
+        "no-param-reassign": ["off"],
+        "no-else-return": ["off"],
+        "no-multi-assign": ["warn"],
+        "no-multiple-empty-lines": ["error"],
+        "no-trailing-spaces": ["warn"],
+        "no-confusing-arrow": ["warn"],
+        "no-nested-ternary": ["warn"],
+        "no-new-object": ["error"],
+        "no-unneeded-ternary": ["error"],
+        "no-mixed-operators": ["error"],
+        "no-new-func": ["error"],
+        "no-new-wrappers": ["error"],
+        "no-array-constructor": ["error"],
+        "no-eval": ["error"],
+        "no-useless-constructor": ["error"],
+        "no-dupe-class-members": ["error"],
+        "no-case-declarations": ["error"],
+        "no-whitespace-before-property": ["error"],
+
+        "brace-style": ["error"],
+
+        "padded-blocks": ["off"],
+        "nonblock-statement-body-position": ["off"],
+        "object-curly-spacing": ["off"],
+
+        "array-callback-return": ["warn"],
+
+        "object-shorthand": ["error", "properties"],
+
+        "arrow-spacing": ["warn", { "before": true, "after": true }],
+        "block-spacing": ["warn"],
+        "comma-spacing": ["warn", { "before": false, "after": true }],
+        "arrow-parens": ["warn", "always"],
+        "implicit-arrow-linebreak": ["off"],
+
+        "prefer-arrow-callback": ["off"],
+        "prefer-destructuring": ["off"],
+        "prefer-spread": ["warn"],
+
+        "spaced-comment": ["warn"],
+        "indent": ["warn", 4]
+
     }
 }
