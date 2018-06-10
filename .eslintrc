@@ -24,6 +24,7 @@
         "no-else-return": ["off"],
         "no-multi-assign": ["warn"],
         "no-multiple-empty-lines": ["error"],
+        "no-multi-spaces": ["error"],
         "no-trailing-spaces": ["warn"],
         "no-confusing-arrow": ["warn"],
         "no-nested-ternary": ["warn"],

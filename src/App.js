@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 
-console.log("teste");
+console.log("teste")        ;
+
+
+
+
+
+
+
 class App extends Component {
-    render () {
+    render() {
         return <div className="App">Test</div>;
     }
 }
