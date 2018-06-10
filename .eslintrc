@@ -61,7 +61,10 @@
         "prefer-spread": ["warn"],
 
         "spaced-comment": ["warn"],
-        "indent": ["warn", 4]
+        "indent": ["warn", 4],
+
+        "jsx-a11y/href-no-hash": ["off"]
+
 
     }
 }
