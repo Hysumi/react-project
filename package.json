@@ -14,19 +14,11 @@
         "eject": "react-scripts eject",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
-        "precommit": "lint-staged"
-    },
-    "lint-staged": {
-        "*.js": [
-            "lint",
-            "lint:fix",
-            "git add"
-        ]
+        "precommit": "eslint src"
     },
     "devDependencies": {
         "eslint-config-prettier": "^2.9.0",
         "eslint-plugin-prettier": "^2.6.0",
-        "husky": "^0.14.3",
-        "lint-staged": "^7.1.3"
+        "husky": "^0.14.3"
     }
 }
