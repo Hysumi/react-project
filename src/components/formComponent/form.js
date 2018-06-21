@@ -1,85 +1,77 @@
 import React from "react";
 
+// Components
+import { InputKeyValue } from "./../inputComponent";
+
 export default class Form extends React.Component {
-    state = {
-        websiteURL: "",
-        source: "",
-        medium: "",
-        name: "",
-        term: "",
-        content: ""
+    constructor (props) {
+        super(props);
+        this.state = {
+            id: [],
+        };
+        this.addAttribute = this.addAttribute.bind(this);
+        this.deleteAttribute = this.deleteAttribute.bind(this);
     }
 
-    change = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
+    addAttribute () {
+        let hasNull = false;
+        let _state = this.state;
+        let cont = 0;
+        while (cont < _state.id.length && !hasNull) {
+            if (!_state.id[cont] && _state.id[cont] !== 0) {
+                _state.id[cont] = cont;
+                hasNull = true;
+                this.setState({id: _state});
+            }
+            cont++;
+        }
+        if (!hasNull) {
+            this.state.id.push(this.state.id.length);
+        }
+        this.setState(this.state);
+        console.log(this.state.id);
     }
 
-    onSubmit = (e) => {
-        e.preventDefault();
-        this.props.onSubmit(this.state);
+    deleteAttribute (v) {
+        for (var i = 0; i < this.state.id.length; i++) {
+            if (this.state.id[i] === v) {
+                delete this.state.id[i];
+            }
+        }
         this.setState({
-            websiteURL: "",
-            source: "",
-            medium: "",
-            name: "",
-            term: "",
-            content: ""
+            id:this.state.id
         });
+        console.log(this.state.id);
+    }
+
+    getInputOfType (type) {
+        let component;
+        switch (type) {
+        default:
+            component = (
+                <InputKeyValue />
+            );
+            break;
+        }
+        return component;
     }
 
     render () {
+        let { id } = this.state;
         return (
-            <form>
-                <input
-                    name="websiteURL"
-                    placeholder="Website URL"
-                    value={this.state.websiteURL}
-                    onChange={(e) => this.change(e)}
-                />
-                <br />
-                <input
-                    name="source"
-                    placeholder="Source"
-                    value={this.state.source}
-                    onChange={(e) => this.change(e)}
-                />
-                <br />
-                <input
-                    name="medium"
-                    placeholder="Medium"
-                    value={this.state.medium}
-                    onChange={(e) => this.change(e)}
-                />
-                <br />
-                <input
-                    name="name"
-                    placeholder="Name"
-                    value={this.state.name}
-                    onChange={(e) => this.change(e)}
-                />
-                <br />
-                <input
-                    name="term"
-                    placeholder="Term"
-                    value={this.state.term}
-                    onChange={(e) => this.change(e)}
-                />
-                <br />
-                <input
-                    name="content"
-                    placeholder="Content"
-                    value={this.state.content}
-                    onChange={(e) => this.change(e)}
-                />
-                <br />
-                <p>
-                    {JSON.stringify(this.state, null, 2)}
-                    <a href="{this.state.websiteURL}">{this.state.websiteURL}</a>
-                </p>
-                <button onClick={(e) => this.onSubmit(e)}> Generate </button>
-            </form>
+            <div>
+                <button className="addbutton" onClick={this.addAttribute}>Add Attribute</button>
+                {id.map((attribute, i) => {
+                    return (
+                        <div key={i}>
+                            {this.getInputOfType(attribute)}
+                            <button onClick={this.deleteAttribute.bind(this, attribute)}>
+                                Delete Attribute
+                            </button>{attribute}
+                        </div>
+                    );
+                })}
+            </div>
         );
     }
 }
