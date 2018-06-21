@@ -116,7 +116,7 @@ export default class Form extends React.Component {
                 })}
                 <button type="submit" onClick={this.generateURLScheme}> Generate URL Scheme </button>
                 <br/>
-                <a href="{this.state.url}">{this.state.url}</a>
+                <a href={this.state.url}>{this.state.url}</a>
             </form>
         );
     }
