@@ -35,6 +35,7 @@ export default class Form extends React.Component {
             _state.push(this.state.attributes[i]);
         }
         this.setState({attributes: _state});
+        console.log(this.state);
     }
 
     getInputOfType (attribute, type = "default") {
@@ -44,15 +45,16 @@ export default class Form extends React.Component {
             component = (
                 <InputKeyValue
                     // attribute
+                    attrId={attribute.id} 
+                    attrKey={attribute.key} 
+                    attrValue={attribute.value} 
+                    // function
+                    deleteAttribute={this.deleteAttribute}
                 />
             );
             break;
         }
         return component;
-    }
-
-    setUniqueId () {
-
     }
 
     render () {
@@ -63,9 +65,6 @@ export default class Form extends React.Component {
                     return (
                         <div key={attr.id}>
                             {this.getInputOfType(attr)}
-                            <button onClick={this.deleteAttribute.bind(this, attr.id)}>
-                                Delete Attribute
-                            </button>
                         </div>
                     );
                 })}

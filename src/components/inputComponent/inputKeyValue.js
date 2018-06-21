@@ -2,8 +2,16 @@ import React from "react";
 import Input from "./input";
 
 export default class InputKeyValue extends Input {
-    state = {
-        data: {key: "", value: ""}
+
+    constructor (props) {
+        super(props);
+        this.state = {
+            data: {}
+        };
+    }
+
+    onDeleteAttribute () {
+        this.props.deleteAttribute(this.props.attrId);
     }
 
     render () {
@@ -23,6 +31,9 @@ export default class InputKeyValue extends Input {
                     value={this.state.data.value}
                     onChange={(e) => this.change(e)}
                 />
+                <button onClick={this.onDeleteAttribute.bind(this)}>
+                    Delete Attribute
+                </button>
             </div>
         );
     }
