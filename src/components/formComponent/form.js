@@ -9,11 +9,13 @@ export default class Form extends React.Component {
         this.state = {
             attributes: [],
             id: 0,
-            baseURLScheme: ""
+            baseURLScheme: "",
+            url: ""
         };
         this.addAttribute = this.addAttribute.bind(this);
         this.deleteAttribute = this.deleteAttribute.bind(this);
         this.updateAttribute = this.updateAttribute.bind(this);
+        this.generateURL = this.generateURL.bind(this);
     }
 
     addAttribute (e) {
@@ -68,10 +70,29 @@ export default class Form extends React.Component {
         return component;
     }
 
-    change = (e) => {
+    change (e) {
         e.preventDefault();
         this.setState({
             [e.target.name]: e.target.value
+        });
+    }
+
+    generateURL () {
+        if (this.state.baseURLScheme === "") {
+            return alert("Preencha o campo Base URL Scheme para gerar a url");
+        }
+        let urlScheme = this.state.baseURLScheme + "://";
+        for (var i = 0; i < this.state.attributes.length; i++) {
+            if (this.state.attributes[i].value === "") {
+                continue;
+            }
+            urlScheme += this.state.attributes[i].value;
+            if (i < this.state.attributes.length - 1) {
+                urlScheme += "/";
+            }
+        }
+        this.setState({
+            url: urlScheme
         });
     }
 
@@ -92,6 +113,9 @@ export default class Form extends React.Component {
                         </div>
                     );
                 })}
+                <button onClick={this.generateURL}> Generate URL </button>
+                <br/>
+                {this.state.url}
             </div>
         );
     }
