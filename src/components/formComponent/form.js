@@ -77,7 +77,8 @@ export default class Form extends React.Component {
         });
     }
 
-    generateURLScheme () {
+    generateURLScheme (e) {
+        e.preventDefault();
         if (this.state.baseURLScheme === "") {
             return alert("Preencha o campo Base URL Scheme para gerar a url");
         }
@@ -86,7 +87,7 @@ export default class Form extends React.Component {
             if (this.state.attributes[i].value === "" || this.state.attributes[i].key === "") {
                 continue;
             }
-            urlScheme += this.state.attributes[i].key + "=" + this.state.attributes[i].value;
+            urlScheme += this.state.attributes[i].key + "::" + this.state.attributes[i].value;
             if (i < this.state.attributes.length - 1) {
                 urlScheme += "/";
             }
@@ -98,14 +99,14 @@ export default class Form extends React.Component {
 
     render () {
         return (
-            <div>
+            <form onSubmit={this.generateURLScheme}>
                 Base URL Scheme <input
                     name="baseURLScheme"
                     placeholder="Base URL Scheme"
                     value={this.state.baseURLScheme}
                     onChange={(e) => this.change(e)}
                 />
-                <button onClick={(e) => this.addAttribute(e)}>Add Attribute</button>
+                <button type="button" onClick={(e) => this.addAttribute(e)}>Add Attribute</button>
                 {this.state.attributes.map((attr, index) => {
                     return (
                         <div key={attr.id}>
@@ -113,10 +114,10 @@ export default class Form extends React.Component {
                         </div>
                     );
                 })}
-                <button onClick={this.generateURLScheme}> Generate URL Scheme </button>
+                <button type="submit" onClick={this.generateURLScheme}> Generate URL Scheme </button>
                 <br/>
-                {this.state.url}
-            </div>
+                <a href="{this.state.url}">{this.state.url}</a>
+            </form>
         );
     }
 }
