@@ -8,7 +8,8 @@ export default class Form extends React.Component {
         super(props);
         this.state = {
             attributes: [],
-            id: 0
+            id: 0,
+            baseURLScheme: ""
         };
         this.addAttribute = this.addAttribute.bind(this);
         this.deleteAttribute = this.deleteAttribute.bind(this);
@@ -53,8 +54,8 @@ export default class Form extends React.Component {
             component = (
                 <InputKeyValue
                     // attributes
-                    attrId={attribute.id} 
-                    attrKey={attribute.key} 
+                    attrId={attribute.id}
+                    attrKey={attribute.key}
                     attrValue={attribute.value}
                     index={index}
                     // functions
@@ -67,10 +68,22 @@ export default class Form extends React.Component {
         return component;
     }
 
+    change = (e) => {
+        e.preventDefault();
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
     render () {
         return (
             <div>
-                Base URL Scheme <input/>
+                Base URL Scheme <input
+                    name="baseURLScheme"
+                    placeholder="Base URL Scheme"
+                    value={this.state.baseURLScheme}
+                    onChange={(e) => this.change(e)}
+                />
                 <button onClick={(e) => this.addAttribute(e)}>Add Attribute</button>
                 {this.state.attributes.map((attr, index) => {
                     return (
