@@ -15,7 +15,7 @@ export default class Form extends React.Component {
         this.addAttribute = this.addAttribute.bind(this);
         this.deleteAttribute = this.deleteAttribute.bind(this);
         this.updateAttribute = this.updateAttribute.bind(this);
-        this.generateURL = this.generateURL.bind(this);
+        this.generateURLScheme = this.generateURLScheme.bind(this);
     }
 
     addAttribute (e) {
@@ -77,16 +77,16 @@ export default class Form extends React.Component {
         });
     }
 
-    generateURL () {
+    generateURLScheme () {
         if (this.state.baseURLScheme === "") {
             return alert("Preencha o campo Base URL Scheme para gerar a url");
         }
         let urlScheme = this.state.baseURLScheme + "://";
         for (var i = 0; i < this.state.attributes.length; i++) {
-            if (this.state.attributes[i].value === "") {
+            if (this.state.attributes[i].value === "" || this.state.attributes[i].key === "") {
                 continue;
             }
-            urlScheme += this.state.attributes[i].value;
+            urlScheme += this.state.attributes[i].key + "=" + this.state.attributes[i].value;
             if (i < this.state.attributes.length - 1) {
                 urlScheme += "/";
             }
@@ -113,7 +113,7 @@ export default class Form extends React.Component {
                         </div>
                     );
                 })}
-                <button onClick={this.generateURL}> Generate URL </button>
+                <button onClick={this.generateURLScheme}> Generate URL Scheme </button>
                 <br/>
                 {this.state.url}
             </div>

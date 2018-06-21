@@ -19,8 +19,10 @@ export default class InputKeyValue extends Input {
         e.preventDefault();
         this.setState({
             [e.target.name]: e.target.value
+        }, () => {
+            // Callback after state change
+            this.props.updateAttribute(this.props.index, this.state.key, this.state.value);
         });
-        this.props.updateAttribute(this.props.index, this.state.key, this.state.value);
     }
 
     render () {
