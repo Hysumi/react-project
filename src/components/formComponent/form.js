@@ -78,6 +78,7 @@ export default class Form extends React.Component {
     }
 
     generateURLScheme (e) {
+        console.log("A");
         e.preventDefault();
         if (this.state.baseURLScheme === "") {
             return alert("Preencha o campo Base URL Scheme para gerar a url");
