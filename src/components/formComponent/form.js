@@ -12,6 +12,7 @@ export default class Form extends React.Component {
         };
         this.addAttribute = this.addAttribute.bind(this);
         this.deleteAttribute = this.deleteAttribute.bind(this);
+        this.updateAttribute = this.updateAttribute.bind(this);
     }
 
     addAttribute (e) {
@@ -35,21 +36,30 @@ export default class Form extends React.Component {
             _state.push(this.state.attributes[i]);
         }
         this.setState({attributes: _state});
-        console.log(this.state);
     }
 
-    getInputOfType (attribute, type = "default") {
+    updateAttribute (index, newKey, newValue) {
+        const newState = [...this.state.attributes];
+        newState[index] = { ...newState[index], id: newState[index].id, key: newKey, value: newValue };
+        this.setState({
+            attributes: newState
+        });
+    }
+
+    getInputOfType (attribute, index, type = "default") {
         let component;
         switch (type) {
         default:
             component = (
                 <InputKeyValue
-                    // attribute
+                    // attributes
                     attrId={attribute.id} 
                     attrKey={attribute.key} 
-                    attrValue={attribute.value} 
-                    // function
+                    attrValue={attribute.value}
+                    index={index}
+                    // functions
                     deleteAttribute={this.deleteAttribute}
+                    updateAttribute={this.updateAttribute}
                 />
             );
             break;
@@ -60,11 +70,12 @@ export default class Form extends React.Component {
     render () {
         return (
             <div>
+                Base URL Scheme <input/>
                 <button onClick={(e) => this.addAttribute(e)}>Add Attribute</button>
-                {this.state.attributes.map((attr) => {
+                {this.state.attributes.map((attr, index) => {
                     return (
                         <div key={attr.id}>
-                            {this.getInputOfType(attr)}
+                            {this.getInputOfType(attr, index)}
                         </div>
                     );
                 })}

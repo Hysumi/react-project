@@ -6,12 +6,21 @@ export default class InputKeyValue extends Input {
     constructor (props) {
         super(props);
         this.state = {
-            data: {}
+            key: "",
+            value: ""
         };
     }
 
     onDeleteAttribute () {
         this.props.deleteAttribute(this.props.attrId);
+    }
+
+    change = (e) => {
+        e.preventDefault();
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+        this.props.updateAttribute(this.props.index, this.state.key, this.state.value);
     }
 
     render () {
@@ -21,14 +30,14 @@ export default class InputKeyValue extends Input {
                 <input
                     name="key"
                     placeholder="Key"
-                    value={this.state.data.key}
+                    value={this.state.key}
                     onChange={(e) => this.change(e)}
                 />
                 Value:
                 <input
                     name="value"
                     placeholder="Value"
-                    value={this.state.data.value}
+                    value={this.state.value}
                     onChange={(e) => this.change(e)}
                 />
                 <button onClick={this.onDeleteAttribute.bind(this)}>
