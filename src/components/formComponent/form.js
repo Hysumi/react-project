@@ -100,24 +100,29 @@ export default class Form extends React.Component {
 
     render () {
         return (
-            <form onSubmit={this.generateURLScheme}>
-                Base URL Scheme <input
-                    name="baseURLScheme"
-                    placeholder="Base URL Scheme"
-                    value={this.state.baseURLScheme}
-                    onChange={(e) => this.change(e)}
-                />
-                <button type="button" onClick={(e) => this.addAttribute(e)}>Add Attribute</button>
-                {this.state.attributes.map((attr, index) => {
-                    return (
-                        <div key={attr.id}>
-                            {this.getInputOfType(attr, index)}
-                        </div>
-                    );
-                })}
-                <button type="submit" onClick={this.generateURLScheme}> Generate URL Scheme </button>
-                <br/>
-                <a href={this.state.url}>{this.state.url}</a>
+            <form className="form-container" onSubmit={this.generateURLScheme}>
+                <div className="title">
+                    <h2 className="centralizar">URL Scheme</h2>
+                    <a className="url" href={this.state.url}>{this.state.url}</a>
+                </div>
+                <div className="scroll">
+                    Base URL Scheme <input
+                        name="baseURLScheme"
+                        placeholder="Base URL Scheme"
+                        value={this.state.baseURLScheme}
+                        onChange={(e) => this.change(e)}
+                    />
+                    <button type="button" className="button-add" onClick={(e) => this.addAttribute(e)}>Add Attribute</button>
+                    {this.state.attributes.map((attr, index) => {
+                        return (
+                            <div key={attr.id}>
+                                {this.getInputOfType(attr, index)}
+                            </div>
+                        );
+                    })}
+                    <button type="submit" className="button-generate" onClick={this.generateURLScheme}> Generate URL Scheme </button>
+                    <br/>
+                </div>
             </form>
         );
     }

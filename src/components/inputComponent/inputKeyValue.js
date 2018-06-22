@@ -27,22 +27,22 @@ export default class InputKeyValue extends Input {
 
     render () {
         return (
-            <div>
-                Key:
-                <input
+            <div className="line">
+                <label className="label-key">Key:</label>
+                <input className="input-key"
                     name="key"
                     placeholder="Key"
                     value={this.state.key}
                     onChange={(e) => this.change(e)}
                 />
-                Value:
-                <input
+                <label className="label-value">Value:</label>
+                <input className="input-value"
                     name="value"
                     placeholder="Value"
                     value={this.state.value}
                     onChange={(e) => this.change(e)}
                 />
-                <button onClick={this.onDeleteAttribute.bind(this)}>
+                <button type="button" className="button-delete button-del" onClick={this.onDeleteAttribute.bind(this)}>
                     Delete Attribute
                 </button>
             </div>
