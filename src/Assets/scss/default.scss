@@ -164,7 +164,9 @@ input:hover {
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 812px) {
+
+//iPhone 6/7/8, iPhone 6/7/8 Plus, iPhone X
+@media screen and (min-width: 375px) and (max-width: 812px) {
 
     .label-key {
         margin-left: 20px;
@@ -204,6 +206,52 @@ input:hover {
         margin: 5%;
     }
 }
+
+// Iphone 5/SE
+@media screen and (width: 320px) and (max-width: 568px) {
+
+    .input-key {
+        margin-left: 24px;
+    }
+
+
+    .button-del {
+        margin: 10px;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .line {
+        border-bottom: 1px solid #ffab00;
+    }
+
+    .form-center {
+        margin-top: -10px;
+    }
+
+    .button-generate {
+        margin: 5%;
+    }
+
+    .label-title {
+        margin-left: 10px;
+    }
+
+    .input-url {
+        width: 150px;
+        margin-left: -16px;
+    }
+
+    .button-add {
+        margin-left: 10px;
+    }
+
+
+}
+
+
 
 
 

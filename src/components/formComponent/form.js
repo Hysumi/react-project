@@ -106,7 +106,8 @@ export default class Form extends React.Component {
                     <a className="url" href={this.state.url}>{this.state.url}</a>
                 </div>
                 <div className="scroll">
-                    Base URL Scheme <input
+                    <label className="label-title"> Base URL Scheme </label> <input
+                        className="input-url"
                         name="baseURLScheme"
                         placeholder="Base URL Scheme"
                         value={this.state.baseURLScheme}
