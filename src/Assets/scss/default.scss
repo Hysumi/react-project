@@ -174,7 +174,7 @@ input:hover {
     }
 
     .label-value {
-        padding-right: 15px;
+        margin-left: 0 !important;
     }
 
     .input-key {
@@ -184,6 +184,7 @@ input:hover {
 
     .input-value {
         margin-right: 44px;
+        margin-left: 20px !important;
     }
 
     .button-del {
@@ -252,6 +253,42 @@ input:hover {
 }
 
 
+
+@media screen and (width: 360px) and (height: 640px) {
+
+    .label-key {
+        margin-left: 20px;
+    }
+
+    .label-value {
+        //margin-left: 35px;
+        margin-left: 11px !important;
+    }
+
+    .input-value {
+        margin-left: 5px !important;
+    }
+
+    .form-container {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .line {
+        border-bottom: 1px solid #ffab00;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .button-delete {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+
+
+
+}
 
 
 
