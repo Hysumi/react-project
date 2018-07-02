@@ -164,7 +164,9 @@ input:hover {
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 812px) {
+
+//iPhone 6/7/8, iPhone 6/7/8 Plus, iPhone X
+@media screen and (min-width: 375px) and (max-width: 812px) {
 
     .label-key {
         margin-left: 20px;
@@ -172,7 +174,7 @@ input:hover {
     }
 
     .label-value {
-        padding-right: 15px;
+        margin-left: 0 !important;
     }
 
     .input-key {
@@ -182,6 +184,7 @@ input:hover {
 
     .input-value {
         margin-right: 44px;
+        margin-left: 20px !important;
     }
 
     .button-del {
@@ -203,6 +206,88 @@ input:hover {
     .button-generate {
         margin: 5%;
     }
+}
+
+// Iphone 5/SE
+@media screen and (width: 320px) and (max-width: 568px) {
+
+    .input-key {
+        margin-left: 24px;
+    }
+
+
+    .button-del {
+        margin: 10px;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .line {
+        border-bottom: 1px solid #ffab00;
+    }
+
+    .form-center {
+        margin-top: -10px;
+    }
+
+    .button-generate {
+        margin: 5%;
+    }
+
+    .label-title {
+        margin-left: 10px;
+    }
+
+    .input-url {
+        width: 150px;
+        margin-left: -16px;
+    }
+
+    .button-add {
+        margin-left: 10px;
+    }
+
+
+}
+
+
+
+@media screen and (width: 360px) and (height: 640px) {
+
+    .label-key {
+        margin-left: 20px;
+    }
+
+    .label-value {
+        //margin-left: 35px;
+        margin-left: 11px !important;
+    }
+
+    .input-value {
+        margin-left: 5px !important;
+    }
+
+    .form-container {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .line {
+        border-bottom: 1px solid #ffab00;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .button-delete {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+
+
+
 }
 
 
