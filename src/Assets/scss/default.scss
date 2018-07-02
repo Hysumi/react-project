@@ -209,7 +209,7 @@ input:hover {
 }
 
 // Iphone 5/SE
-@media screen and (width: 320px) and (max-width: 568px) {
+@media screen and (min-width: 320px) and (max-width: 568px) {
 
     .input-key {
         margin-left: 24px;
@@ -254,7 +254,7 @@ input:hover {
 
 
 
-@media screen and (width: 360px) and (height: 640px) {
+@media screen and (min-width: 360px) and (height: 640px) {
 
     .label-key {
         margin-left: 20px;
@@ -284,9 +284,6 @@ input:hover {
         margin-top: 15px;
         margin-bottom: 15px;
     }
-
-
-
 
 }
 
